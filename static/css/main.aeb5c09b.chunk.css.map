@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,WACE,gBAAiB,CACjB,aACF,CAEA,iBACE,YAAa,CACb,gBACF,CAEA,GACE,oBACF","file":"main.aeb5c09b.chunk.css","sourcesContent":[".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\n\n.card-body-stars {\n  display: flex;\n  margin-top: 100px;\n}\n\nul {\n  list-style-type: none;\n}\n"]}
