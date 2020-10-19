@@ -3,8 +3,8 @@ import Star from "./Star";
 import PropTypes from "prop-types";
 import shortid from "short-id";
 
-const Stars = ({ count, id }) => {
-  if (isNaN(parseInt(count)) || count <= 0 || count > 5) {
+const Stars = ({ count }) => {
+  if (isNaN(count) || count <= 0 || count > 5) {
     return null;
   }
 
@@ -18,7 +18,11 @@ const Stars = ({ count, id }) => {
     <div className="container">
       <ul key={shortid.generate()} className="card-body-stars u-clearfix">
         {starsToRender.map(({ _id }) => {
-          return <Star key={_id} />;
+          return (
+            <li key={_id}>
+              <Star />
+            </li>
+          );
         })}
       </ul>
     </div>
