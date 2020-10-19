@@ -1,26 +1,27 @@
 import React from "react";
 import Star from "./Star";
 import PropTypes from "prop-types";
+import shortid from "short-id";
 
-const Stars = ({ count }) => {
-  const validateCount = (count) => {
-    if (count > 0) {
-      if (!Number.isNaN(parseInt(count))) {
-        return true;
-      }
-    }
-  };
+const Stars = ({ count, id }) => {
+  if (isNaN(parseInt(count)) || count <= 0 || count > 5) {
+    return null;
+  }
+
+  const stars = new Array(count).fill(null);
+  const starsToRender = stars.map((star) => ({
+    _id: shortid.generate(),
+    value: star,
+  }));
 
   return (
-    <>
-      {validateCount(count) && (
-        <div className="container">
-          <ul className="card-body-stars u-clearfix">
-            {Array(count).fill(<Star />)}
-          </ul>
-        </div>
-      )}
-    </>
+    <div className="container">
+      <ul key={shortid.generate()} className="card-body-stars u-clearfix">
+        {starsToRender.map(({ _id }) => {
+          return <Star key={_id} />;
+        })}
+      </ul>
+    </div>
   );
 };
 
